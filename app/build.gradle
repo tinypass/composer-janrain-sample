@@ -2,18 +2,9 @@ apply plugin: 'com.android.application'
 
 def piano = new Properties()
 piano.load(new FileReader(file("piano.properties")))
-def pianoAid = piano['io.piano.aid']
 
 def janrain = new Properties()
 janrain.load(new FileReader(file("janrain.properties")))
-def janrainEngageAppId = janrain['engageAppId']
-def janrainCaptureAppId = janrain['captureAppId']
-def janrainCaptureDomain = janrain['captureDomain']
-def janrainCaptureClientId = janrain['captureClientId']
-def janrainCaptureFlowName = janrain['captureFlowName']
-def janrainCaptureTraditionalSignInFormName = janrain['captureTraditionalSignInFormName']
-def janrainCaptureLocale = janrain['captureLocale']
-def janrainTraditionalSignInType = janrain['traditionalSignInType']
 
 android {
     compileSdkVersion 24
@@ -26,21 +17,21 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField "String", "PIANO_AID", "\"$pianoAid\""
+        buildConfigField "String", "PIANO_AID", "\"$piano.applicationId\""
 
-        buildConfigField "String", "JANRAIN_ENGAGE_APP_ID", "\"$janrainEngageAppId\""
-        buildConfigField "String", "JANRAIN_CAPTURE_APP_ID", "\"$janrainCaptureAppId\""
-        buildConfigField "String", "JANRAIN_CAPTURE_DOMAIN", "\"$janrainCaptureDomain\""
-        buildConfigField "String", "JANRAIN_CAPTURE_CLIENT_ID", "\"$janrainCaptureClientId\""
-        buildConfigField "String", "JANRAIN_CAPTURE_FLOW_NAME", "\"$janrainCaptureFlowName\""
-        buildConfigField "String", "JANRAIN_CAPTURE_TRADITIONAL_SIGN_IN_FORM_NAME", "\"$janrainCaptureTraditionalSignInFormName\""
-        buildConfigField "String", "JANRAIN_CAPTURE_LOCALE", "\"$janrainCaptureLocale\""
-        buildConfigField "String", "JANRAIN_TRADITIONAL_SIGN_IN_TYPE", "\"$janrainTraditionalSignInType\""
+        buildConfigField "String", "JANRAIN_ENGAGE_APP_ID", "\"$janrain.engageAppId\""
+        buildConfigField "String", "JANRAIN_CAPTURE_APP_ID", "\"$janrain.captureAppId\""
+        buildConfigField "String", "JANRAIN_CAPTURE_DOMAIN", "\"$janrain.captureDomain\""
+        buildConfigField "String", "JANRAIN_CAPTURE_CLIENT_ID", "\"$janrain.captureClientId\""
+        buildConfigField "String", "JANRAIN_CAPTURE_FLOW_NAME", "\"$janrain.captureFlowName\""
+        buildConfigField "String", "JANRAIN_CAPTURE_TRADITIONAL_SIGN_IN_FORM_NAME", "\"$janrain.captureTraditionalSignInFormName\""
+        buildConfigField "String", "JANRAIN_CAPTURE_LOCALE", "\"$janrain.captureLocale\""
+        buildConfigField "String", "JANRAIN_TRADITIONAL_SIGN_IN_TYPE", "\"$janrain.traditionalSignInType\""
     }
 }
 
 dependencies {
     compile 'com.android.support:appcompat-v7:24.1.1'
-    compile 'io.piano.android:composer:1.0.0-alpha2'
+    compile 'io.piano.android:composer:1.0.0-alpha3'
     compile project(':Jump')
 }

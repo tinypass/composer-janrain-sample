@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private final View.OnClickListener EXECUTE_COMPOSER = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            new Composer(MainActivity.this, BuildConfig.PIANO_AID, true)
-                    .user(Jump.getSignedInUser() == null ? null : Jump.getAccessToken(), "janrain")
+            new Composer(MainActivity.this, BuildConfig.PIANO_AID, BuildConfig.DEBUG)
+                    .userToken(Jump.getSignedInUser() == null ? null : Jump.getAccessToken())
                     .addListener(SHOW_LOGIN_LISTENER)
                     .addListener(EXPERIENCE_EXECUTE_LISTENER)
                     .execute();
